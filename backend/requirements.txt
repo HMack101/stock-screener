@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy[asyncio]
+asyncpg
+apscheduler
+aiohttp
+requests
+pydantic
+lxml
+python-dotenv
+yfinance
