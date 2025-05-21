@@ -1,12 +1,65 @@
-# Getting Started with Create React App
+# 📈 Stock Screener Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the React-based frontend for the Real-Time Intraday Stock Screener. It visualizes low-float stocks, volume spikes, float rotation, catalysts, entry/exit signals, and more.
 
-## Available Scripts
+## 🚀 Features
+
+- 🔍 Live stock screener with auto-refresh
+- 🧠 Entry/Exit suggestion engine
+- 📰 Ticker-specific news
+- 📊 Material UI interface with sort/filter/search
+- ➕ Add/remove stocks via modal form
+- 🔁 30-second auto-refresh interval
+
+## 📦 Tech Stack
+
+- React
+- Material UI
+- Axios
+- Chart.js (optional)
+- Tailwind CSS (optional utility support)
+
+## 📂 Project Structure
+src/
+├── components/
+│ ├── ScreenerTable.js
+│ ├── AddStockModal.js
+│ └── NewsList.js
+├── App.js
+├── api/
+│ └── stockService.js
+└── index.js
+
+## 🔧 Getting Started
+
+### 1. Install dependencies
+```
+npm install
+```
+
+### 2. Start development server
+```
+npm start
+```
+The app runs on: http://localhost:3000
+
+###⚙️ Configuration
+Make sure the backend URL is correctly set in axios.get() or create an .env file:
+```
+REACT_APP_API_BASE_URL=http://localhost:8000
+```
+Update your Axios calls accordingly using process.env.REACT_APP_API_BASE_URL.
+
+### 📌 TODO
+ - Add WebSocket for real-time updates
+ - Implement login/auth for watchlist syncing
+
+
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,12 +67,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+#### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +82,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+#### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
@@ -39,7 +92,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
