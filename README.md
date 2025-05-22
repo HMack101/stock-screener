@@ -6,7 +6,7 @@
 - Read the front-end README (frontend/README.md) for front-end deployment (https://github.com/HMack101/stock-screener/tree/main/frontend).
 
 ## Back-end 
-- Read the back-end README (backend/README.md) for back-end deployment.
+- Read the back-end README (backend/README.md) for back-end deployment (https://github.com/HMack101/stock-screener/tree/main/backend).
 
 
 
