@@ -2,6 +2,8 @@ package com.hmack101.screener.model;
 
 // Catalyst.java
 import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -9,7 +11,8 @@ import java.time.LocalDateTime;
 public class Catalyst {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private Integer id;
 
     private String ticker;

@@ -13,7 +13,7 @@ export default function NewsList({ ticker }) {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://10.7.84.117:8000/api/news/${ticker}`)
+    axios.get(`http://localhost:8000/api/news/${ticker}`)
       .then(res => setNews(res.data.news))
       .catch(console.error);
   }, [ticker]);

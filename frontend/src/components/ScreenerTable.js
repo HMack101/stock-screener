@@ -28,7 +28,7 @@ export default function ScreenerTable() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://10.7.84.117:8000/api/screener");
+      const res = await axios.get("http://localhost:8000/api/screener");
       setData(res.data);
     } catch (err) {
       console.error("Failed to fetch screener data", err);

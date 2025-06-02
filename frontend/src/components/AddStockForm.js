@@ -10,7 +10,7 @@ const AddStockForm = ({ onStockAdded }) => {
     if (!ticker.trim()) return;
 
     try {
-      const res = await axios.post("http://10.7.84.117:8000/api/stock", {
+      const res = await axios.post("http://localhost:8000/api/stock/addOrUpdate", {
         ticker: ticker.trim().toUpperCase(),
       });
       setStatus("success");

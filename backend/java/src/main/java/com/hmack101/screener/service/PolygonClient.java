@@ -22,22 +22,23 @@ public class PolygonClient {
         String url = UriComponentsBuilder.fromHttpUrl(baseUrl + "/v3/reference/tickers/" + ticker)
                 .queryParam("apiKey", apiKey)
                 .toUriString();
-
+        System.out.println("url: " + url);
         Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+        System.out.println("response: " + response.toString());
         Map<String, Object> results = (Map<String, Object>) response.get("results");
-
+        System.out.println("results: " + results.toString());
         ExternalStockData data = new ExternalStockData();
         data.setTicker(ticker);
 
         try {
             if (results != null) {
-                Map<String, Object> shareClass = (Map<String, Object>) results.get("share_class_shares_outstanding");
-                data.setFloatShares(results.get("share_class_shares_outstanding") != null
-                        ? ((Number) results.get("share_class_shares_outstanding")).floatValue()
-                        : 0d);
-                data.setAvgVolume(results.get("volume_avg") != null
-                        ? ((Number) results.get("volume_avg")).floatValue()
-                        : 0d);
+                Double floatShares = results.get("share_class_shares_outstanding") != null ? ((Number) results.get("share_class_shares_outstanding")).doubleValue() : 0d;
+                System.out.println("float shares: " + floatShares);
+                data.setFloatShares(floatShares);
+
+                Double avgVolume = results.get("volume_avg") != null ? ((Number) results.get("volume_avg")).doubleValue() : 0d;
+                System.out.println("Average Volume: " + avgVolume);
+                data.setAvgVolume(avgVolume);
             }
         } catch (Exception e) {
             throw new RuntimeException("Failed to parse stock data from Polygon", e);

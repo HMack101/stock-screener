@@ -16,7 +16,7 @@ export default function StockList({ onSelectTicker }) {
 
   const fetchStocklist = async () => {
     try {
-      const res = await axios.get("http://10.7.84.117:8000/api/stocks");
+      const res = await axios.get("http://localhost:8000/api/stocks");
       setStocks(res.data || []);
     } catch (err) {
       console.error("Failed to fetch watchlist", err);
@@ -43,7 +43,7 @@ export default function StockList({ onSelectTicker }) {
               <ListItem button onClick={() => onSelectTicker(s.ticker)}>
                 <ListItemText
                   primary={`${s.ticker}`}
-                  secondary={`Float: ${s.float} | Vol: ${s.avg_volume}`}
+                  secondary={`Float: ${s.floatShares} | Vol: ${s.avgVolume}`}
                 />
               </ListItem>
               {index < stocks.length - 1 && <Divider />}

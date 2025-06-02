@@ -28,7 +28,7 @@ public class StockService {
     public List<StockDTO> listStocks() {
         return stockRepository.findAll()
                 .stream()
-                .map(StockMapper::toDTO)
+                .map(StockDTO::toDTO)
                 .collect(Collectors.toList());
     }
 
@@ -53,6 +53,7 @@ public class StockService {
     }
 
     public Stock addOrUpdateStock(String ticker) {
+        System.out.println("StockService - addOrUpdateStock - ticker: " + ticker);
         Optional<Stock> existing = stockRepository.findByTicker(ticker);
 
         if (existing.isPresent()) {
@@ -66,7 +67,7 @@ public class StockService {
         newStock.setTicker(data.getTicker());
         newStock.setFloatShares(data.getFloatShares());
         newStock.setAvgVolume(data.getAvgVolume());
-
+        System.out.println("saving sock data: " + newStock);
         return stockRepository.save(newStock);
     }
 

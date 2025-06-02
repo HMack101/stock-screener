@@ -5,7 +5,7 @@ export default function CatalystAlerts() {
   const [alerts, setAlerts] = useState([]);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://10.7.84.117:8000/ws/catalysts");
+    const ws = new WebSocket("ws://localhost:8000/ws/catalysts");
 
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);

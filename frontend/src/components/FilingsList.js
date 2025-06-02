@@ -13,7 +13,7 @@ export default function FilingsList({ ticker }) {
   const [filings, setFilings] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://10.7.84.117:8000/api/filings/${ticker}`)
+    axios.get(`http://localhost:8000/api/filings/${ticker}`)
       .then(res => setFilings(res.data.filings))
       .catch(console.error);
   }, [ticker]);
