@@ -4,6 +4,8 @@ package com.hmack101.screener.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "stocks")
 public class Stock {
@@ -16,14 +18,22 @@ public class Stock {
     @Column(unique = true)
     private String ticker;
 
+    private Double price;
+
+    private Double change;
+    private Double changeInPercent;
+
     private Double floatShares;
 
     private Double avgVolume;
 
     public Stock() {}
 
-    public Stock(String ticker, Double floatShares, Double avg) {
+    public Stock(String ticker, Double price, Double change, Double changeInPercent, Double floatShares, Double avg) {
         this.ticker = ticker;
+        this.price = price;
+        this.change = change;
+        this.changeInPercent = changeInPercent;
         this.floatShares = floatShares;
         this.avgVolume = avg;
     }
@@ -45,6 +55,33 @@ public class Stock {
     public void setTicker(String ticker) {
         this.ticker = ticker;
     }
+
+    public Double getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getChange() {
+        return change;
+    }
+
+    public void setChange(Double change) {
+        this.change = change;
+    }
+
+    public Double getChangeInPercent() {
+        return changeInPercent;
+    }
+
+
+    public void setChangeInPercent(Double changeInPercent) {
+        this.changeInPercent = changeInPercent;
+    }
+
+
 
     public Double getFloatShares() {
         return floatShares;

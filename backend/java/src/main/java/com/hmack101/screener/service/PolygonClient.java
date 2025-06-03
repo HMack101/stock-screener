@@ -10,6 +10,46 @@ import java.util.Map;
 @Service
 public class PolygonClient {
 
+    public class PolygonData {
+        private String ticker;
+        private Double floatShares;
+        private Double avgVolume;
+
+        public PolygonData() {}
+
+        public PolygonData(String ticker, Double floatShares, Double avgVolume) {
+            this.ticker = ticker;
+            this.floatShares = floatShares;
+            this.avgVolume = avgVolume;
+        }
+
+        public String getTicker() {
+            return ticker;
+        }
+
+        public void setTicker(String ticker) {
+            this.ticker = ticker;
+        }
+
+        public Double getFloatShares() {
+            return floatShares;
+        }
+
+        public void setFloatShares(Double floatShares) {
+            this.floatShares = floatShares;
+        }
+
+        public Double getAvgVolume() {
+            return avgVolume;
+        }
+
+        public void setAvgVolume(Double avgVolume) {
+            this.avgVolume = avgVolume;
+        }
+    }
+
+
+
     @Value("${polygon.api.key}")
     private String apiKey;
 
@@ -18,7 +58,7 @@ public class PolygonClient {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public ExternalStockData fetchStockDetails(String ticker) {
+    public PolygonData fetchStockDetails(String ticker) {
         String url = UriComponentsBuilder.fromHttpUrl(baseUrl + "/v3/reference/tickers/" + ticker)
                 .queryParam("apiKey", apiKey)
                 .toUriString();
@@ -27,7 +67,7 @@ public class PolygonClient {
         System.out.println("response: " + response.toString());
         Map<String, Object> results = (Map<String, Object>) response.get("results");
         System.out.println("results: " + results.toString());
-        ExternalStockData data = new ExternalStockData();
+        PolygonData data = new PolygonData();
         data.setTicker(ticker);
 
         try {

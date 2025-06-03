@@ -1,12 +1,13 @@
 package com.hmack101.screener.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.math.BigInteger;
 
+
+@Entity
+@Table(name = "previous_day_data")
 public class PreviousDayData {
 
     @Id
